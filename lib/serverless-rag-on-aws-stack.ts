@@ -345,7 +345,7 @@ export class ServerlessRagOnAws extends Stack {
       // we want to limit the maximum number of concurrent executions to one until LanceDB supports concurrent writers
       // As of now, LanceDB provides a solution for concurrents write but in experimental mode:
       // https://lancedb.github.io/lance/read_and_write.html#concurrent-writer-on-s3-using-dynamodb
-      reservedConcurrentExecutions: 1, 
+      // reservedConcurrentExecutions: 10, 
       timeout: Duration.minutes(5),
       environment: {
         WEBSOCKET_ENDPOINT: `wss://${webSocketApi.apiId}.execute-api.${this.region}.amazonaws.com/${deployment.stageName}`,
